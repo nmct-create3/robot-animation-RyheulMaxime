@@ -43,6 +43,13 @@ html {
 }
 
 body {
+  background-color: var(--global-color-back);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /*
@@ -133,11 +140,61 @@ body {
 */
 
 .c-robot {
+  /* display: block; */
+  /* margin: 0 auto; */
+  max-width: 300px;
+  /* max-height: 300px; */
+  fill: var(--global-color-front);
+  --c-robot-animation-duation:0.75s;
+  --c-robot-timing-function:ease-in-out;
+  --c-robot-iteration-count: infinite;
+  --c-robot-direction:alternate;
 }
 
 .c-robot__shadow {
+
+  fill: var(--c-robot__shadow-fill, black);
+  opacity: 0.1;
+  
+
 }
 
+
+.c-robot--css-anim #Robot{
+  animation-name: robotHover;
+  animation-duration: var(--c-robot-animation-duation);
+  animation-timing-function: var(--c-robot-timing-function);
+  animation-iteration-count: var(--c-robot-iteration-count);
+  animation-direction: var(--c-robot-direction);
+  
+  /* animation: shadowPulse 0.75s ease-in-out 0s infinite alternate; */
+}
+
+.c-robot--css-anim #Shadow{
+  transform-origin: 50% 100%;
+  animation-name: shadowPulse;
+  animation-duration: var(--c-robot-animation-duation);
+  animation-timing-function: var(--c-robot-timing-function);
+  animation-iteration-count: var(--c-robot-iteration-count);
+  animation-direction: var(--c-robot-direction);
+  
+  /* animation: shadowPulse 0.75s ease-in-out 0s infinite alternate; */
+}
+
+@keyframes shadowPulse{
+  100%{
+    transform: scale(0.75);
+  }
+}
+
+@keyframes robotHover {
+  0%{
+    transform: translateY(2.5%);
+  }
+  100%{
+    transform: translateY(-2.5%);
+  }
+}
 
 /*
     Component: Controls
